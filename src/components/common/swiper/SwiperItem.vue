@@ -18,5 +18,6 @@
 
   .slide img {
     width: 100%;
+    transform: translateX(-1.2px);
   }
 </style>
