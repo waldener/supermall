@@ -15,5 +15,6 @@ name: "FeatureView"
 <style scoped>
 .feature img{
   width: 100%;
+  transform: translateX(1px);
 }
 </style>

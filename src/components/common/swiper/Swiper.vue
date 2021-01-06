@@ -7,7 +7,7 @@
       </slot>
       <div class="indicator">
         <slot name="indicator" v-if="showIndicator && slideCount>1">
-          <div v-for="(item, index) in slideCount" class="indi-item" :class="{active: index === currentIndex-1}" :key="index"></div>
+          <div v-for="index in slideCount" class="indi-item" :class="{active: index === currentIndex}" :key="index"></div>
         </slot>
       </div>
     </div>
@@ -34,16 +34,18 @@
         default: true
       }
     },
-    data: function () {
+    data() {
 		  return {
         slideCount: 0, // 元素个数
         totalWidth: 0, // swiper的宽度
-        swiperStyle: {}, // swiper样式
+        swiperStyle: {
+          transform:''
+        }, // swiper样式
         currentIndex: 1, // 当前的index
         scrolling: false, // 是否正在滚动
       }
     },
-    mounted: function () {
+    mounted() {
       // 1.操作DOM, 在前后添加Slide
       setTimeout(() => {
         this.handleDom();
@@ -74,7 +76,7 @@
         this.scrolling = true;
 
         // 1.开始滚动动画
-        this.swiperStyle.transition ='transform '+ this.animDuration + 'ms';
+        this.swiperStyle.transition = this.animDuration + 'ms';
         this.setTransform(currentPosition);
 
         // 2.判断滚动到的位置

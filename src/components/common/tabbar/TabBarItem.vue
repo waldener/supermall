@@ -26,7 +26,11 @@ export default {
   },
   methods:{
     itemClick(){
-      this.$router.replace(this.path)
+      if(this.$route.path == this.path){
+        return true
+      }else{
+        this.$router.replace(this.path)
+      }
     }
   }
 }
