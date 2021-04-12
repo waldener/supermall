@@ -115,7 +115,7 @@
           //3.将数据保存下来
           this.categoryData[this.currentIndex].categoryDetail[type] = res
           console.log(res);
-          //老师代码里的，意义不明,搞不懂
+          
           this.categoryData = {...this.categoryData}
         })
       },
